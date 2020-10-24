@@ -2,25 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {getSmurf} from '../actions'
 import Smurf from './smurf'
-// class SmurfList extends React.Component{
-    
-//     constructor(){
-// super();
-// this.state = {
-//     data:[]
-// }
-
-//     }
-
-    // render(){
+import FormSmurf from './formSmurf'
       const SmurfList = props=>{
         return(<div>
-            {props.data.map(el=>{
-               return <Smurf smurf={el}/>
-            })}
+
+           <FormSmurf />
+            
            
             <button onClick={()=>{props.getSmurf()
             }}>Get Smurfs</button>
+            
+
+            {props.data.map(el=>{
+               return <Smurf smurf={el}/>
+            })}
+
         </div>)
     }
 
