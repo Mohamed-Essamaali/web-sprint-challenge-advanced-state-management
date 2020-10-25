@@ -1,3 +1,23 @@
 .App {
   text-align: center;
 }
+
+.smurfs-container{
+  border:2px solid green;
+  display: flex;
+  flex-direction:column;
+  align-items:center
+}
+
+.smurfs {
+  display: flex;
+  flex-wrap: wrap;
+  border:2px solid green;
+  width:100%
+}
+.smurf{
+  width:25%;
+  padding: 2.5%;
+  margin: 1% 1.5%;
+  border:2px solid green;
+}

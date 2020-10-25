@@ -5,6 +5,7 @@ export const SMURF_FETCHING = 'SMURF_FETCHING';
 export const SMURF_SUCCESS = 'SMURF_SUCCESS';
 export const SMURF_FAILURE = 'SMURF_FAILURE';
 export const ADD_SMURF = 'ADD_SMURF';
+export const REMOVE_SMURF = 'REMOVE_SMURF';
 
 
 export const getSmurf = ()=>dispatch=>{
@@ -22,7 +23,7 @@ export const getSmurf = ()=>dispatch=>{
 export const addSmurf = item=>dispatch=>{
     console.log('smurf added in actions',item)
 
-    dispatch({type:ADD_SMURF})
+    dispatch({type:ADD_SMURF,payload:item})
 
     axios.post('http://localhost:3333/smurfs',item)
     .then(res=>{
@@ -33,3 +34,9 @@ export const addSmurf = item=>dispatch=>{
     dispatch({type:SMURF_FAILURE,payload: err})
 })
 }
+
+export const removeSmurf = item=>dispatch=>{
+    console.log('function remove called to remove ',item)
+    dispatch({type: REMOVE_SMURF,payload: item})
+   
+} 

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import {getSmurf} from '../actions'
 import Smurf from './smurf'
 import FormSmurf from './formSmurf'
-import SmurfContext from '../contexts/contextSmurf'
+
       const SmurfList = props=>{
           console.log('props in list',props)
-        return(<div>
+        return(<div className='smurfs-container'>
             
                 
            <FormSmurf />
@@ -15,12 +15,14 @@ import SmurfContext from '../contexts/contextSmurf'
             <button onClick={()=>{props.getSmurf()
             }}>Get Smurfs</button>
             
-
+            <div className='smurfs'>
             {props.data.map((smurf,i)=>{
                 console.log('smurf map',smurf)
                return <Smurf key={i} smurf={smurf} />
             })}
         
+            </div>
+           
         </div>)
     }
 

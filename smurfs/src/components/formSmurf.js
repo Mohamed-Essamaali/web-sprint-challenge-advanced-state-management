@@ -9,7 +9,7 @@ const FormSmurf = props=>{
         age:'',
         height:''
     })
-    const[isClicked,setIsclicked]= useState(false);
+
 
     const handleChange = e=>{
 
@@ -24,9 +24,7 @@ console.log('new smurf', smurf)
                 <input type='text' name='name' placeholder='smurf name'alue={smurf.name} onChange={handleChange}/>
                 <input  type='number' name='age' placeholder='age' value= {smurf.age} onChange={handleChange}/>
                 <input  type='number' name = 'height' placeholder='height' value= {smurf.height} onChange={handleChange}/>
-                 <button onClick={()=>{
-                                 setIsclicked(!isClicked);
-                             props.addSmurf(smurf)}} >Add New Smurf</button>
+                 <button onClick={()=>{props.addSmurf(smurf)}} >Add New Smurf</button>
              
         </div>
     )
@@ -38,6 +36,6 @@ const mapStateToProps= state=>{
     return{
             data:state.data,
             smurf:state.smurf,
-            isClicked:state.isClicked}
+           }
 }
 export default connect(mapStateToProps,{addSmurf})(FormSmurf)
