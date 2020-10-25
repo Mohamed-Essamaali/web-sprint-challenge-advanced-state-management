@@ -1,21 +1,35 @@
-import {SMURF_FETCHING,SMURF_SUCCESS, SMURF_FAILURE} from '../actions'
+import {SMURF_FETCHING,SMURF_SUCCESS, SMURF_FAILURE,ADD_SMURF} from '../actions'
 
 export const initialState = {
-    data:[]
+    data:[
+        {
+            name:"simo",
+            age:"25",
+            height:"13"
+        }
+    ]
+  ,
+
+    loading:false,
+    error:'',
+    isClicked:false
 }
 
 export const myReducer = (state=initialState,action)=>{
 
 switch(action.type){
     case SMURF_FETCHING:
-        return {...state}
-        case SMURF_SUCCESS:
-            console.log('data in reducer success',state.data)
-            return {...state,...state.data,data:action.payload}
-        case SMURF_FAILURE:
-            return {...state}
-        default:
-            return state
+        return {...state,loading:true}
+    case SMURF_SUCCESS:
+        return {...state, 
+            data:action.payload,
+            loading:false}
+    case SMURF_FAILURE:
+         return {...state, error:action.payload,loading:false}
+         case ADD_SMURF:
+             return {...state,data:[...state.data, action.payload]}
+    default:
+        return state
 }
 
 

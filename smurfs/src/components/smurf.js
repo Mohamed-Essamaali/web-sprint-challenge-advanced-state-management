@@ -9,17 +9,20 @@ console.log('props in smurf',props)
 
         return(<div>
             <h3>{props.smurf.name}</h3>
-            <p>{props.smurf.age}</p>
-            <p>{props.smurf.height}</p>
-
+            <p>Age: {props.smurf.age} year</p>
+            <p>Height: {props.smurf.height}feet</p>
+            <button>Toggle Editing</button>
+            <button>Delete</button>
         </div>)
     }
 
+    export default Smurf
 
-const mapStateToProps= state =>{
+// const mapStateToProps= state =>{
 
-    return {
-        data:state.data
-    }
-}
-export default connect(mapStateToProps,null)(Smurf)
+//     return {
+//         data:state.data,
+//         // smurf:state.smurf
+//     }
+// }
+// export default connect(mapStateToProps,null)(Smurf)
