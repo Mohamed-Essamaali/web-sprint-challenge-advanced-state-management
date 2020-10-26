@@ -7,17 +7,18 @@ import FormSmurf from './formSmurf'
       const SmurfList = props=>{
           console.log('props in list',props)
         return(<div className='smurfs-container'>
-            
+            <h1>SMURFS! W/Redux</h1>
+          
                 
            <FormSmurf />
             
            
-            <button onClick={()=>{props.getSmurf()
+            <button className='get-btn' onClick={()=>{props.getSmurf()
             }}>Get Smurfs</button>
             
             <div className='smurfs'>
             {props.data.map((smurf,i)=>{
-                console.log('smurf map',smurf)
+              
                return <Smurf key={i} smurf={smurf} />
             })}
         
@@ -28,7 +29,7 @@ import FormSmurf from './formSmurf'
 
 
 const mapStateToProps = state=>{
-    console.log('MApStatestate in List',state.data)
+
 
         return {   data:state.data,
                     smurf:state.smurf

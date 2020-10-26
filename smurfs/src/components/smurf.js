@@ -1,29 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {removeSmurf} from '../actions'
-// class Smurf extends React.Component{
+import {removeSmurf,toggleEditing} from '../actions'
 
 
-//     render(){
-const Smurf = props=>{
-console.log('props in smurf',props)
 
-        return(<div className='smurf'>
-            <h3>{props.smurf.name}</h3>
-            <p>Age: {props.smurf.age} year</p>
-            <p>Height: {props.smurf.height}feet</p>
-            <button>Toggle Editing</button>
-            <button onClick = {()=>props.removeSmurf}>Delete</button>
+class Smurf extends React.Component{
+
+    render(){
+
+console.log('props in smurf',this.props)
+
+        return(<div className={`smurf${this.props.completed ? " completed" :''}`}>
+            <h3>{this.props.smurf.name}</h3>
+            <p>Age: {this.props.smurf.age} years</p>
+            <p>Height: {this.props.smurf.height}</p>
+            <button onClick={()=>this.props.toggleEditing()}>Toggle Editing</button>
+            <button onClick = {()=>this.props.removeSmurf(this.props.smurf)}>Delete</button>
         </div>)
     }
-
+}
     // export default Smurf
 
-// const mapStateToProps= state =>{
+const mapStateToProps= state =>{
 
-//     return {
-//         // data:state.data,
-//         // smurf:state.smurf
-//     }
-// }
-export default connect(null,{removeSmurf})(Smurf)
+    return {
+        // data:state.data,
+        // smurf:state.smurf,
+        completed: state.completed
+    }
+}
+export default connect(mapStateToProps,{removeSmurf,toggleEditing})(Smurf)

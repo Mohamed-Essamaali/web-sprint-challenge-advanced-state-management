@@ -1,17 +1,20 @@
-import {SMURF_FETCHING,SMURF_SUCCESS, SMURF_FAILURE,ADD_SMURF, REMOVE_SMURF} from '../actions'
+import {SMURF_FETCHING,SMURF_SUCCESS, SMURF_FAILURE,ADD_SMURF, REMOVE_SMURF,TOGGLE_EDITING} from '../actions'
 
 export const initialState = {
     data:[
         {
             name:"simo",
             age:"25",
-            height:"13"
-        }
+            height:"13",
+            completed:false
+        },
+        
     ]
   ,
 
     loading:false,
     error:'',
+    
    
 }
 
@@ -31,6 +34,8 @@ switch(action.type){
     case REMOVE_SMURF:
         console.log('remove method called in reducer');
         return {...state, data: [...state.data.filter(item=> item.id !== action.payload.id)]}
+        case TOGGLE_EDITING:
+            return {...state,completed: !state.completed}
     default:
         return state
 }

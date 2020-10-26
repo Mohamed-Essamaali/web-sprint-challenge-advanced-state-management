@@ -6,6 +6,7 @@ export const SMURF_SUCCESS = 'SMURF_SUCCESS';
 export const SMURF_FAILURE = 'SMURF_FAILURE';
 export const ADD_SMURF = 'ADD_SMURF';
 export const REMOVE_SMURF = 'REMOVE_SMURF';
+export const TOGGLE_EDITING = 'TOGGLE_EDITING';
 
 
 export const getSmurf = ()=>dispatch=>{
@@ -36,7 +37,13 @@ export const addSmurf = item=>dispatch=>{
 }
 
 export const removeSmurf = item=>dispatch=>{
-    console.log('function remove called to remove ',item)
-    dispatch({type: REMOVE_SMURF,payload: item})
+
    
+    dispatch({type: REMOVE_SMURF,payload: item})
+ 
+   
+} 
+
+export const toggleEditing = ()=>dispatch=>{
+dispatch({type: TOGGLE_EDITING })
 } 

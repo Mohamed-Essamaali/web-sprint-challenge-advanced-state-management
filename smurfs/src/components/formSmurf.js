@@ -22,9 +22,9 @@ console.log('new smurf', smurf)
         <div>
            
                 <input type='text' name='name' placeholder='smurf name'alue={smurf.name} onChange={handleChange}/>
-                <input  type='number' name='age' placeholder='age' value= {smurf.age} onChange={handleChange}/>
-                <input  type='number' name = 'height' placeholder='height' value= {smurf.height} onChange={handleChange}/>
-                 <button onClick={()=>{props.addSmurf(smurf)}} >Add New Smurf</button>
+                <input   name='age' placeholder='age' value= {smurf.age} onChange={handleChange}/>
+                <input   name = 'height' placeholder='height' value= {smurf.height} onChange={handleChange}/>
+                 <button className='add-btn' onClick={()=>{props.addSmurf(smurf)}} >Add New Smurf</button>
              
         </div>
     )
